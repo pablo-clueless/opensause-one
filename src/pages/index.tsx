@@ -79,8 +79,8 @@ const Page = () => {
               </div>
               <div className="max-w-1/4 space-y-2">
                 <p className="">
-                  Hi, I'm Samson Okunola - a Software Engineer passionate about creating amazing
-                  digital experience for my users.
+                  Hi, I&apos;m Samson Okunola - a Software Engineer passionate about creating
+                  amazing digital experience for my users.
                 </p>
               </div>
             </div>
@@ -269,7 +269,7 @@ const Page = () => {
             >
               <h2 className="text-4xl font-semibold">PROJECTS</h2>
               <p className="text-sm leading-relaxed text-neutral-600 lg:w-1/2">
-                A collection of applications and solutions I've built
+                A collection of applications and solutions I&apos;ve built
               </p>
             </motion.div>
             <div className="grid w-full grid-cols-2 gap-x-5 gap-y-10">
