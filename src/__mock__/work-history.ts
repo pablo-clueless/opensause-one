@@ -1,0 +1,60 @@
+import type { WorkHistoryProps } from "@/types";
+
+export const WORK_HISTORY: WorkHistoryProps[] = [
+  {
+    name: "Peerless",
+    start: "05/05/2024",
+    end: "",
+    role: "Software Engineer (Frontend)",
+    description: "",
+    technologies: ["react", "typescript", "micro frontend"],
+  },
+  {
+    name: "OptimusAI Labs",
+    start: "10/01/2024",
+    end: "",
+    role: "Software Engineer",
+    description: "",
+    technologies: ["react", "typescript"],
+  },
+  {
+    name: "Zummit Africa Inc",
+    start: "10/01/2023",
+    end: "",
+    role: "Lead Engineer",
+    description: "",
+    technologies: ["react", "typescript", "golang", "python"],
+  },
+  {
+    name: "Onboard",
+    start: "10/30/2023",
+    end: "01/30/2024",
+    role: "Frontend Developer",
+    description: "",
+    technologies: ["react", "typescript"],
+  },
+  {
+    name: "Telagri (TAO)",
+    start: "05/01/2023",
+    end: "10/01/2023",
+    role: "Frontend Developer",
+    description: "",
+    technologies: ["react", "typescript"],
+  },
+  {
+    name: "Zummit Africa Inc",
+    start: "03/05/2022",
+    end: "10/01/2023",
+    role: "Frontend Developer",
+    description: "",
+    technologies: ["react", "javascript", "typescript"],
+  },
+  {
+    name: "Kappari Enterprise",
+    start: "07/01/2020",
+    end: "12/30/2021",
+    role: "Frontend Developer",
+    description: "",
+    technologies: ["react", "javascript"],
+  },
+];
