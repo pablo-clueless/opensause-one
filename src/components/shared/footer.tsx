@@ -302,6 +302,7 @@ export const Footer = () => {
                     duration: 0.2,
                   },
                 }}
+                title={label}
               >
                 <Logo className="text-background group-hover:text-primary size-6 transition-colors duration-200" />
                 <motion.div
@@ -341,28 +342,6 @@ export const Footer = () => {
               </motion.div>
             );
           })}
-          {Array.from({ length: 100 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="bg-primary/30 absolute h-1 w-1 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                opacity: [0, 0.6, 0],
-                scale: [0, 1, 0],
-                x: [0, (Math.random() - 0.5) * 50],
-                y: [0, (Math.random() - 0.5) * 50],
-              }}
-              transition={{
-                delay: i * 0.3,
-                duration: 4,
-                repeat: Infinity,
-                repeatDelay: Math.random() * 3,
-              }}
-            />
-          ))}
         </motion.div>
         <div className="w-full space-y-2">
           <div className="grid w-full grid-cols-5 gap-x-5">

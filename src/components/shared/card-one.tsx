@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 
-import type { ProjectProps } from "@/types";
+import type { ProjectProps } from "@/types/app";
 
 interface Props {
   index: number;

@@ -1,4 +1,4 @@
-import type { WorkHistoryProps } from "@/types";
+import type { WorkHistoryProps } from "@/types/app";
 
 export const WORK_HISTORY: WorkHistoryProps[] = [
   {

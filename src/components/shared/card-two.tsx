@@ -1,6 +1,6 @@
 import React from "react";
 
-import type { WallProps } from "@/types";
+import type { WallProps } from "@/types/app";
 
 interface Props {
   wall: WallProps;

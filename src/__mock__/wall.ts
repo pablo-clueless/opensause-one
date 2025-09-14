@@ -1,4 +1,4 @@
-import type { WallProps } from "@/types";
+import type { WallProps } from "@/types/app";
 
 export const WALL: WallProps[] = [
   {

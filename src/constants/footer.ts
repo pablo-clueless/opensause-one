@@ -1,85 +1,89 @@
+import { FaAws, FaGolang } from "react-icons/fa6";
 import {
-  RiAndroidLine,
-  RiCodepenLine,
-  RiFigmaLine,
-  RiGithubLine,
-  RiJavascriptLine,
-  RiNextjsLine,
-  RiNodejsLine,
-  RiNpmjsLine,
-  RiOpenSourceLine,
-  RiReactjsLine,
-  RiRemixRunLine,
-  RiSupabaseLine,
-  RiSvelteLine,
-  RiTailwindCssLine,
-  RiVercelLine,
-  RiVuejsLine,
-} from "@remixicon/react";
+  DiAndroid,
+  DiApple,
+  DiCodepen,
+  DiDocker,
+  DiGit,
+  DiGithub,
+  DiGoogleCloudPlatform,
+  DiJavascript,
+  DiNginx,
+  DiNodejs,
+  DiNpm,
+  DiOpensource,
+  DiPostgresql,
+  DiReact,
+  DiRust,
+} from "react-icons/di";
 
 export const THINGS = [
   {
     label: "android",
-    logo: RiAndroidLine,
+    logo: DiAndroid,
+  },
+  {
+    label: "apple",
+    logo: DiApple,
+  },
+  {
+    label: "aws",
+    logo: FaAws,
   },
   {
     label: "codepen",
-    logo: RiCodepenLine,
+    logo: DiCodepen,
   },
   {
-    label: "figma",
-    logo: RiFigmaLine,
+    label: "docker",
+    logo: DiDocker,
+  },
+  {
+    label: "git",
+    logo: DiGit,
   },
   {
     label: "github",
-    logo: RiGithubLine,
+    logo: DiGithub,
   },
   {
-    label: "javascript",
-    logo: RiJavascriptLine,
+    label: "go",
+    logo: FaGolang,
   },
   {
-    label: "nextjs",
-    logo: RiNextjsLine,
+    label: "google cloud platform",
+    logo: DiGoogleCloudPlatform,
+  },
+  {
+    label: "javascDipt",
+    logo: DiJavascript,
+  },
+  {
+    label: "nginx",
+    logo: DiNginx,
   },
   {
     label: "nodejs",
-    logo: RiNodejsLine,
+    logo: DiNodejs,
   },
   {
     label: "npm",
-    logo: RiNpmjsLine,
+    logo: DiNpm,
   },
   {
     label: "opensource",
-    logo: RiOpenSourceLine,
+    logo: DiOpensource,
+  },
+  {
+    label: "postgresql",
+    logo: DiPostgresql,
   },
   {
     label: "react",
-    logo: RiReactjsLine,
+    logo: DiReact,
   },
   {
-    label: "remix",
-    logo: RiRemixRunLine,
-  },
-  {
-    label: "supabase",
-    logo: RiSupabaseLine,
-  },
-  {
-    label: "svelte",
-    logo: RiSvelteLine,
-  },
-  {
-    label: "tailwind",
-    logo: RiTailwindCssLine,
-  },
-  {
-    label: "vercel",
-    logo: RiVercelLine,
-  },
-  {
-    label: "vue",
-    logo: RiVuejsLine,
+    label: "rust",
+    logo: DiRust,
   },
 ];
