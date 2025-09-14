@@ -7,12 +7,14 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
+    "prettier:all": "prettier --write \"./**/*.{js,jsx,ts,tsx}\"",
     "prettier:write": "prettier --write \"./src/**/*.{js,jsx,ts,tsx}\"",
     "prettier:check": "prettier --check \"./src/**/*.{js,jsx,ts,tsx}\"",
     "check": "npm run prettier:check && npm run lint"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
+    "@remixicons/react": "^4.6.1",
     "axios": "^1.11.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
