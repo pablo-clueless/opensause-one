@@ -55,7 +55,7 @@ export const THINGS = [
     logo: DiGoogleCloudPlatform,
   },
   {
-    label: "javascDipt",
+    label: "javascript",
     logo: DiJavascript,
   },
   {

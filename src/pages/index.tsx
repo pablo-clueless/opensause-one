@@ -143,7 +143,7 @@ const Page = () => {
                       initial={{ opacity: 0, y: 50, scale: 0.9 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -50, scale: 0.9 }}
-                      transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+                      transition={{ duration: 0, type: "spring", stiffness: 100 }}
                     >
                       {historiesInActiveYear.workHistory.length > 0 ? (
                         <div className="space-y-8">
@@ -154,8 +154,7 @@ const Page = () => {
                               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{
-                                duration: 0.6,
-                                delay: index * 0.05,
+                                duration: 0.3,
                                 type: "spring",
                                 stiffness: 80,
                               }}
