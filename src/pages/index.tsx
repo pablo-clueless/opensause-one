@@ -1,10 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { format } from "date-fns";
 import React from "react";
 
 import { CardOne, CardTwo, Footer, Navbar, Seo } from "@/components/shared";
 import { PROJECTS, WALL, WORK_HISTORY } from "@/__mock__";
 import { MasonryLayout } from "@/components/layouts";
-import { cn, formatDate } from "@/lib";
+import { cn } from "@/lib";
 
 const startYear = new Date("12-03-2020").getFullYear();
 const maxYear = Math.max(...WORK_HISTORY.map(({ start }) => new Date(start).getFullYear()));
@@ -28,7 +29,7 @@ const Page = () => {
 
   const historiesInActiveYear = React.useMemo(() => {
     return (
-      history.find((history) => history.year === activeYear) || {
+      history.find((history) => new Date(history.year).getFullYear() === Number(activeYear)) || {
         year: activeYear,
         workHistory: [],
       }
@@ -147,87 +148,93 @@ const Page = () => {
                     >
                       {historiesInActiveYear.workHistory.length > 0 ? (
                         <div className="space-y-8">
-                          {historiesInActiveYear.workHistory.map((work, index) => (
-                            <motion.div
-                              key={`${work.name}-${work.start}`}
-                              className="bg-background/80 rounded-lg border border-neutral-200 p-8 shadow-lg backdrop-blur-sm"
-                              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{
-                                duration: 0.3,
-                                type: "spring",
-                                stiffness: 80,
-                              }}
-                              whileHover={{
-                                y: -5,
-                                boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
-                                transition: { duration: 0.2 },
-                              }}
-                            >
-                              <div className="space-y-4">
-                                <div className="flex items-start justify-between">
-                                  <div>
-                                    <motion.h4
-                                      className="text-foreground text-2xl font-bold"
-                                      layoutId={`title-${work.name}`}
-                                    >
-                                      {work.role}
-                                    </motion.h4>
-                                    <motion.p
-                                      className="text-primary text-lg font-medium"
-                                      layoutId={`name-${work.name}`}
-                                    >
-                                      {work.name}
-                                    </motion.p>
-                                  </div>
-                                  <motion.div
-                                    className="text-right text-sm font-medium text-neutral-600"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 0.3 }}
-                                  >
-                                    <p>{formatDate(work.start)}</p>
-                                    {work.end ? <p>— {formatDate(work.end)}</p> : <p>Present</p>}
-                                  </motion.div>
-                                </div>
-                                {work.description && (
-                                  <motion.p
-                                    className="leading-relaxed text-neutral-700"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.4 }}
-                                  >
-                                    {work.description}
-                                  </motion.p>
-                                )}
-                                {work.technologies && work.technologies.length > 0 && (
-                                  <motion.div
-                                    className="flex flex-wrap gap-2"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.5 }}
-                                  >
-                                    {work.technologies.map((tech, techIndex) => (
-                                      <motion.span
-                                        key={tech}
-                                        className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700"
-                                        initial={{ opacity: 0, scale: 0 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{
-                                          delay: 0.6 + techIndex * 0.05,
-                                          type: "spring",
-                                          stiffness: 150,
-                                        }}
-                                        whileHover={{ scale: 1.1 }}
+                          {historiesInActiveYear.workHistory
+                            .sort(
+                              (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime(),
+                            )
+                            .map((work, index) => (
+                              <motion.div
+                                key={`${work.name}-${work.start}`}
+                                className="bg-background/80 rounded-lg border border-neutral-200 p-8 shadow-lg backdrop-blur-sm"
+                                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{
+                                  duration: 0.3,
+                                  type: "spring",
+                                  stiffness: 80,
+                                }}
+                                whileHover={{
+                                  y: -5,
+                                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                                  transition: { duration: 0.2 },
+                                }}
+                              >
+                                <div className="space-y-4">
+                                  <div className="flex items-start justify-between">
+                                    <div>
+                                      <motion.h4
+                                        className="text-foreground text-2xl"
+                                        layoutId={`title-${work.name}`}
                                       >
-                                        {tech}
-                                      </motion.span>
-                                    ))}
-                                  </motion.div>
-                                )}
-                              </div>
-                            </motion.div>
-                          ))}
+                                        {work.role}
+                                      </motion.h4>
+                                      <motion.p
+                                        className="text-primary text-lg font-medium"
+                                        layoutId={`name-${work.name}`}
+                                      >
+                                        {work.name}
+                                      </motion.p>
+                                    </div>
+                                    <motion.div
+                                      className="flex items-center gap-x-2 text-right text-sm font-medium text-neutral-600"
+                                      initial={{ opacity: 0 }}
+                                      animate={{ opacity: 1 }}
+                                      transition={{ delay: 0.3 }}
+                                    >
+                                      <p>{format(new Date(work.start), "MMM yyyy")}</p>
+                                      {work.end && (
+                                        <p> - {format(new Date(work.end), "MMM yyyy")}</p>
+                                      )}
+                                    </motion.div>
+                                  </div>
+                                  {work.description && (
+                                    <motion.p
+                                      className="leading-relaxed text-neutral-700"
+                                      initial={{ opacity: 0, y: 10 }}
+                                      animate={{ opacity: 1, y: 0 }}
+                                      transition={{ delay: 0.4 }}
+                                    >
+                                      {work.description}
+                                    </motion.p>
+                                  )}
+                                  {work.technologies && work.technologies.length > 0 && (
+                                    <motion.div
+                                      className="flex flex-wrap gap-2"
+                                      initial={{ opacity: 0, y: 10 }}
+                                      animate={{ opacity: 1, y: 0 }}
+                                      transition={{ delay: 0.5 }}
+                                    >
+                                      {work.technologies.map((tech, techIndex) => (
+                                        <motion.span
+                                          key={tech}
+                                          className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700"
+                                          initial={{ opacity: 0, scale: 0 }}
+                                          animate={{ opacity: 1, scale: 1 }}
+                                          transition={{
+                                            delay: 0.6 + techIndex * 0.05,
+                                            type: "spring",
+                                            stiffness: 150,
+                                          }}
+                                          whileHover={{ scale: 1.1 }}
+                                        >
+                                          {tech}
+                                        </motion.span>
+                                      ))}
+                                    </motion.div>
+                                  )}
+                                </div>
+                              </motion.div>
+                            ))}
                         </div>
                       ) : (
                         <motion.div

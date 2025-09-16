@@ -3,11 +3,19 @@ import {
   DiAndroid,
   DiApple,
   DiCodepen,
+  DiCss3,
+  DiDigitalOcean,
   DiDocker,
+  DiDotnet,
   DiGit,
   DiGithub,
   DiGoogleCloudPlatform,
+  DiJava,
   DiJavascript,
+  DiLess,
+  DiMarkdown,
+  DiMongodb,
+  DiMysql,
   DiNginx,
   DiNodejs,
   DiNpm,
@@ -15,6 +23,7 @@ import {
   DiPostgresql,
   DiReact,
   DiRust,
+  DiSass,
 } from "react-icons/di";
 
 export const THINGS = [
@@ -33,6 +42,22 @@ export const THINGS = [
   {
     label: "codepen",
     logo: DiCodepen,
+  },
+  {
+    label: "css",
+    logo: DiCss3,
+  },
+  {
+    label: "digitalocean",
+    logo: DiDigitalOcean,
+  },
+  {
+    label: "docker",
+    logo: DiDocker,
+  },
+  {
+    label: "dotnet",
+    logo: DiDotnet,
   },
   {
     label: "docker",
@@ -55,8 +80,28 @@ export const THINGS = [
     logo: DiGoogleCloudPlatform,
   },
   {
+    label: "java",
+    logo: DiJava,
+  },
+  {
     label: "javascript",
     logo: DiJavascript,
+  },
+  {
+    label: "less",
+    logo: DiLess,
+  },
+  {
+    label: "markdown",
+    logo: DiMarkdown,
+  },
+  {
+    label: "mongodb",
+    logo: DiMongodb,
+  },
+  {
+    label: "mysql",
+    logo: DiMysql,
   },
   {
     label: "nginx",
@@ -85,5 +130,9 @@ export const THINGS = [
   {
     label: "rust",
     logo: DiRust,
+  },
+  {
+    label: "sass",
+    logo: DiSass,
   },
 ];
